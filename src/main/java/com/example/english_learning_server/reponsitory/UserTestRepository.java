@@ -88,4 +88,20 @@ public interface UserTestRepository extends JpaRepository<UserTest, Long> {
             nativeQuery = true)
     List<Object[]> getRankedTests2(@Param("userId") Integer userId, @Param("courseId") Integer courseId);
 
+    @Query(value = """
+        SELECT 
+            u.id AS user_id,
+            u.full_name AS full_name,
+            u.email AS email,
+            u.avatar AS avatar,
+            SUM(CAST(ut.score AS DECIMAL)) AS total_score
+        FROM user_test ut
+        JOIN _user u ON ut.user_id = u.id
+        WHERE ut.score IS NOT NULL
+        GROUP BY u.id, u.full_name, u.email, u.avatar
+        ORDER BY total_score DESC
+        """, nativeQuery = true)
+    List<Object[]> getLeaderboard();
+
+
 }

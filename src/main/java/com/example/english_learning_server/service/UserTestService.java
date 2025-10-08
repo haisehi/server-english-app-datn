@@ -1,10 +1,7 @@
 package com.example.english_learning_server.service;
 
 import com.example.english_learning_server.converter.UserTestConverter;
-import com.example.english_learning_server.dto.RankedTestDTO;
-import com.example.english_learning_server.dto.RankedTestDTO2;
-import com.example.english_learning_server.dto.TestDTO;
-import com.example.english_learning_server.dto.UserTestDTO;
+import com.example.english_learning_server.dto.*;
 import com.example.english_learning_server.entity.Test;
 import com.example.english_learning_server.entity.User;
 import com.example.english_learning_server.entity.UserTest;
@@ -189,5 +186,24 @@ public class UserTestService {
                     return dto;
                 })
                 .collect(Collectors.toList());
+    }
+
+    public List<LeaderboardDTO> getLeaderboard() {
+        List<Object[]> results = userTestRepository.getLeaderboard();
+        List<LeaderboardDTO> leaderboard = new ArrayList<>();
+
+        int rank = 1;
+        for (Object[] row : results) {
+            LeaderboardDTO dto = new LeaderboardDTO();
+            dto.setRank(rank++);
+            dto.setUserId(((Number) row[0]).intValue());
+            dto.setFullName((String) row[1]);
+            dto.setEmail((String) row[2]);
+            dto.setAvatar((String) row[3]);
+            dto.setTotalScore(row[4] != null ? ((Number) row[4]).doubleValue() : 0.0);
+            leaderboard.add(dto);
+        }
+
+        return leaderboard;
     }
 }

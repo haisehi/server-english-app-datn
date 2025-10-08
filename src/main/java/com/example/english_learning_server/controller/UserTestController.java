@@ -1,5 +1,6 @@
 package com.example.english_learning_server.controller;
 
+import com.example.english_learning_server.dto.LeaderboardDTO;
 import com.example.english_learning_server.dto.RankedTestDTO;
 import com.example.english_learning_server.dto.RankedTestDTO2;
 import com.example.english_learning_server.dto.UserTestDTO;
@@ -37,5 +38,11 @@ public class UserTestController {
     public ResponseEntity<List<RankedTestDTO2>> getRankedTests2(@RequestParam Integer courseId) {
         List<RankedTestDTO2> rankedTests = userTestService.getRankedTestsForUser2(courseId);
         return ResponseEntity.ok(rankedTests);
+    }
+
+    @GetMapping("/leaderboard")
+    public ResponseEntity<List<LeaderboardDTO>> getLeaderboard() {
+        List<LeaderboardDTO> leaderboard = userTestService.getLeaderboard();
+        return ResponseEntity.ok(leaderboard);
     }
 }
