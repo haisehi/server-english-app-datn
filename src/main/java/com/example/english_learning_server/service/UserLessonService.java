@@ -190,4 +190,33 @@ public class UserLessonService {
         // Trả về tiến trình (progress), nếu không có thì trả về 0
         return userLesson.map(UserLesson::getProgress).orElse(0.0);
     }
+
+    public UserLessonDTO getLatestLessonForCurrentUser() {
+        // Lấy email người dùng từ SecurityContext
+        String userEmail = null;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            userEmail = ((UserDetails) principal).getUsername();
+        } else {
+            userEmail = principal.toString();
+        }
+
+        // Tìm user hiện tại
+        User user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Lấy danh sách bài học được sắp xếp theo updated_at DESC
+        List<UserLesson> userLessons = userLessonRepository.findLatestLessonByUserId(user.getId());
+
+        if (userLessons.isEmpty()) {
+            throw new RuntimeException("No lessons found for user");
+        }
+
+        // Lấy bài học đầu tiên (cập nhật gần nhất)
+        UserLesson latestLesson = userLessons.get(0);
+
+        // Chuyển sang DTO
+        return userLessonMapper.toDTO(latestLesson);
+    }
+
 }

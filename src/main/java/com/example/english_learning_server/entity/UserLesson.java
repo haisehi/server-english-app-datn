@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @Entity
 @Table(name = "user_lesson")
@@ -37,16 +39,30 @@ public class UserLesson {
     @Column(name = "status")
     private Integer status;
 
+    // ✅ Thêm cột updated_at
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "updated_at")
+    private Date updatedAt;
+
+    // ✅ Tự động cập nhật khi insert hoặc update
+    @PrePersist
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
+
+
     public UserLesson() {
     }
 
-    public UserLesson(Long id, User user, Course course, Lesson lesson, double progress, Integer status) {
+    public UserLesson(Long id, User user, Course course, Lesson lesson, double progress, Integer status, Date updatedAt) {
         this.id = id;
         this.user = user;
         this.course = course;
         this.lesson = lesson;
         this.progress = progress;
         this.status = status;
+        this.updatedAt = updatedAt;
     }
 
     public double getProgress() {

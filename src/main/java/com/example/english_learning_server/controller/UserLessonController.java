@@ -110,5 +110,12 @@ public class UserLessonController {
         double progress = userLessonService.getProgressForCurrentUser(courseId, lessonId);
         return new ResponseEntity<>(progress, HttpStatus.OK);
     }
+    // API lấy bài học gần nhất của người học
+    @GetMapping("/latest")
+    public ResponseEntity<UserLessonDTO> getLatestLessonForCurrentUser() {
+        UserLessonDTO latestLesson = userLessonService.getLatestLessonForCurrentUser();
+        return ResponseEntity.ok(latestLesson);
+    }
+
 
 }

@@ -49,4 +49,8 @@ public interface UserLessonRepository extends JpaRepository<UserLesson, Long> {
 
     @Query("SELECT ul FROM UserLesson ul WHERE ul.user.id = :userId AND ul.course.courseId = :courseId AND ul.lesson.lessonId = :lessonId")
     Optional<UserLesson> findProgressByUserIdCourseIdLessonId(@Param("userId") Integer userId, @Param("courseId") Integer courseId, @Param("lessonId") Integer lessonId);
+
+    @Query("SELECT ul FROM UserLesson ul WHERE ul.user.id = :userId ORDER BY ul.updatedAt DESC")
+    List<UserLesson> findLatestLessonByUserId(@Param("userId") Integer userId);
+
 }
