@@ -110,24 +110,24 @@ This is a server-side API for an English learning application, built using Java 
 
 
     - **Headers**
-    -  | Key            | Value             | Description                       |
-    -  |----------------|-------------------|-----------------------------------|
-    -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
 
-    - **Response Example**
-      ```json
-      {
-        "id": 1,
-        "fullName": "John Doe",
-        "email": "johndoe@example.com",
-        "phone": "1234567890",
-        "avatar": null,
-        "status": 1,
-        "role": "USER",
-        "createDate": "2024-11-15T17:43:59.906+00:00",
-        "updatedDate": "2024-11-15T17:43:59.906+00:00"
-      }
-      ```
+  - **Response Example**
+    ```json
+    {
+      "id": 1,
+      "fullName": "John Doe",
+      "email": "johndoe@example.com",
+      "phone": "1234567890",
+      "avatar": null,
+      "status": 1,
+      "role": "USER",
+      "createDate": "2024-11-15T17:43:59.906+00:00",
+      "updatedDate": "2024-11-15T17:43:59.906+00:00"
+    }
+    ```
 
 ### Course APIs
 - **Add Course**
@@ -168,69 +168,69 @@ This is a server-side API for an English learning application, built using Java 
 
 
     - **Headers**
-    -  | Key            | Value             | Description                       |
-    -  |----------------|-------------------|-----------------------------------|
-    -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
 
-    - **Response Example**
-      ```json
-        [
-            {
-                "courseId": 1,
-                "courseName": "test 1",
-                "courseCode": ".",
-                "statusCourse": 1,
-                "maxQuantity": 40,
-                "image": "https://example.com/image.png",
-                "enrollmentStatus": "ENROLLED"
-            },
-            {
-                "courseId": 2,
-                "courseName": "test 2",
-                "courseCode": ".",
-                "statusCourse": 1,
-                "maxQuantity": 40,
-                "image": "https://example.com/image.png",
-                "enrollmentStatus": "ENROLLED"
-            },
-            {
-                "courseId": 3,
-                "courseName": "test 3",
-                "courseCode": ".",
-                "statusCourse": 1,
-                "maxQuantity": 40,
-                "image": "https://example.com/image.png",
-                "enrollmentStatus": "ENROLLED"
-            },
-            {
-                "courseId": 4,
-                "courseName": "test 3",
-                "courseCode": ".",
-                "statusCourse": 1,
-                "maxQuantity": 40,
-                "image": "https://example.com/image.png",
-                "enrollmentStatus": "ENROLLED"
-            },
-            {
-                "courseId": 5,
-                "courseName": "test 3",
-                "courseCode": ".",
-                "statusCourse": 1,
-                "maxQuantity": 40,
-                "image": "https://example.com/image.png",
-                "enrollmentStatus": "NOT_ENROLLED"
-            },
-            {
-                "courseId": 6,
-                "courseName": "test 3",
-                "courseCode": ".",
-                "statusCourse": 1,
-                "maxQuantity": 40,
-                "image": "https://example.com/image.png",
-                "enrollmentStatus": "NOT_ENROLLED"
-            }
-        ]
-      ```
+  - **Response Example**
+    ```json
+      [
+          {
+              "courseId": 1,
+              "courseName": "test 1",
+              "courseCode": ".",
+              "statusCourse": 1,
+              "maxQuantity": 40,
+              "image": "https://example.com/image.png",
+              "enrollmentStatus": "ENROLLED"
+          },
+          {
+              "courseId": 2,
+              "courseName": "test 2",
+              "courseCode": ".",
+              "statusCourse": 1,
+              "maxQuantity": 40,
+              "image": "https://example.com/image.png",
+              "enrollmentStatus": "ENROLLED"
+          },
+          {
+              "courseId": 3,
+              "courseName": "test 3",
+              "courseCode": ".",
+              "statusCourse": 1,
+              "maxQuantity": 40,
+              "image": "https://example.com/image.png",
+              "enrollmentStatus": "ENROLLED"
+          },
+          {
+              "courseId": 4,
+              "courseName": "test 3",
+              "courseCode": ".",
+              "statusCourse": 1,
+              "maxQuantity": 40,
+              "image": "https://example.com/image.png",
+              "enrollmentStatus": "ENROLLED"
+          },
+          {
+              "courseId": 5,
+              "courseName": "test 3",
+              "courseCode": ".",
+              "statusCourse": 1,
+              "maxQuantity": 40,
+              "image": "https://example.com/image.png",
+              "enrollmentStatus": "NOT_ENROLLED"
+          },
+          {
+              "courseId": 6,
+              "courseName": "test 3",
+              "courseCode": ".",
+              "statusCourse": 1,
+              "maxQuantity": 40,
+              "image": "https://example.com/image.png",
+              "enrollmentStatus": "NOT_ENROLLED"
+          }
+      ]
+    ```
 
 
 ### Lesson APIs
@@ -278,53 +278,53 @@ This is a server-side API for an English learning application, built using Java 
 
 
     - **Headers**
-    -  | Key            | Value             | Description                       |
-    -  |----------------|-------------------|-----------------------------------|
-    -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
  
-    -  use Params as key : courseId and value : {id of course}
+  -  use Params as key : courseId and value : {id of course}
 
-    - **Response Example**
-      ```json
-        [
-            {
-                "lessonId": 1,
-                "lessonName": "Lesson 1",
-                "content": "Lesson content",
-                "attachments": "attachment_link",
-                "level": 1,
-                "courseId": 1,
-                "progress": 0.0
-                },
-            {
-                "lessonId": 4,
-                "lessonName": "Lesson 3",
-                "content": "Lesson content",
-                "attachments": "attachment_link",
-                "level": 1,
-                "courseId": 2,
-                "progress": 0.0
-            },
-            {
-                "lessonId": 2,
-                "lessonName": "Lesson 2",
-                "content": "Lesson content",
-                "attachments": "attachment_link",
-                "level": 2,
-                "courseId": 1,
-                "progress": 0.0
-            },
-            {
-                "lessonId": 3,
-                "lessonName": "Lesson 3",
-                "content": "Lesson content",
-                "attachments": "attachment_link",
-                "level": 3,
-                "courseId": 1,
-                "progress": 0.0
-            }
-        ]
-      ```
+  - **Response Example**
+    ```json
+      [
+          {
+              "lessonId": 1,
+              "lessonName": "Lesson 1",
+              "content": "Lesson content",
+              "attachments": "attachment_link",
+              "level": 1,
+              "courseId": 1,
+              "progress": 0.0
+              },
+          {
+              "lessonId": 4,
+              "lessonName": "Lesson 3",
+              "content": "Lesson content",
+              "attachments": "attachment_link",
+              "level": 1,
+              "courseId": 2,
+              "progress": 0.0
+          },
+          {
+              "lessonId": 2,
+              "lessonName": "Lesson 2",
+              "content": "Lesson content",
+              "attachments": "attachment_link",
+              "level": 2,
+              "courseId": 1,
+              "progress": 0.0
+          },
+          {
+              "lessonId": 3,
+              "lessonName": "Lesson 3",
+              "content": "Lesson content",
+              "attachments": "attachment_link",
+              "level": 3,
+              "courseId": 1,
+              "progress": 0.0
+          }
+      ]
+    ```
 
 ### UserCourse APIs
 - **Add UserCourse**
@@ -383,39 +383,39 @@ This is a server-side API for an English learning application, built using Java 
 
 
     - **Headers**
-    -  | Key            | Value             | Description                       |
-    -  |----------------|-------------------|-----------------------------------|
-    -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
 
-    - **Response Example**
-      ```json
-      [
-        {
-        "id": 2,
-        "studentCode": 123,
-        "role": "USER",
-        "status": 1,
-        "courseId": 1,
-        "courseName": "test 1",
-        "courseCode": ".",
-        "statusCourse": 1,
-        "maxQuantity": 40,
-        "image": "https://example.com/image.png"
-        },
-        {
-        "id": 4,
-        "studentCode": 124,
-        "role": "USER",
-        "status": 1,
-        "courseId": 2,
-        "courseName": "test 2",
-        "courseCode": ".",
-        "statusCourse": 1,
-        "maxQuantity": 40,
-        "image": "https://example.com/image.png"
-        }
-      ]
-      ```
+  - **Response Example**
+    ```json
+    [
+      {
+      "id": 2,
+      "studentCode": 123,
+      "role": "USER",
+      "status": 1,
+      "courseId": 1,
+      "courseName": "test 1",
+      "courseCode": ".",
+      "statusCourse": 1,
+      "maxQuantity": 40,
+      "image": "https://example.com/image.png"
+      },
+      {
+      "id": 4,
+      "studentCode": 124,
+      "role": "USER",
+      "status": 1,
+      "courseId": 2,
+      "courseName": "test 2",
+      "courseCode": ".",
+      "statusCourse": 1,
+      "maxQuantity": 40,
+      "image": "https://example.com/image.png"
+      }
+    ]
+    ```
 
 
 ### UserLesson APIs
@@ -462,59 +462,78 @@ This is a server-side API for an English learning application, built using Java 
 
 
     - **Headers**
-    -  | Key            | Value             | Description                       |
-    -  |----------------|-------------------|-----------------------------------|
-    -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
 
-    - **Response Example**
-      ```json
-      [
-      {
-      "lessonId": 1,
-      "lessonName": "Lesson 1",
-      "content": "Lesson content",
-      "attachments": "attachment_link",
-      "level": "beginner",
-      "courseId": 1,
-      "progress": "0%"
-      },
-      {
-      "lessonId": 1,
-      "lessonName": "Lesson 1",
-      "content": "Lesson content",
-      "attachments": "attachment_link",
-      "level": "beginner",
-      "courseId": 1,
-      "progress": "0%"
-      },
-      {
-      "lessonId": 1,
-      "lessonName": "Lesson 1",
-      "content": "Lesson content",
-      "attachments": "attachment_link",
-      "level": "beginner",
-      "courseId": 1,
-      "progress": "0%"
-      }
-      ]
-      ```
+  - **Response Example**
+    ```json
+    [
+    {
+    "lessonId": 1,
+    "lessonName": "Lesson 1",
+    "content": "Lesson content",
+    "attachments": "attachment_link",
+    "level": "beginner",
+    "courseId": 1,
+    "progress": "0%"
+    },
+    {
+    "lessonId": 1,
+    "lessonName": "Lesson 1",
+    "content": "Lesson content",
+    "attachments": "attachment_link",
+    "level": "beginner",
+    "courseId": 1,
+    "progress": "0%"
+    },
+    {
+    "lessonId": 1,
+    "lessonName": "Lesson 1",
+    "content": "Lesson content",
+    "attachments": "attachment_link",
+    "level": "beginner",
+    "courseId": 1,
+    "progress": "0%"
+    }
+    ]
+    ```
 
 - **Get progress of current user lesson by access-token**
   - `GET` [http://localhost:8080/api/v1/user-lesson/progress](http://localhost:8080/api/v1/user-lesson/progress)
 
 
     - **Headers**
-    -  | Key            | Value             | Description                       |
-    -  |----------------|-------------------|-----------------------------------|
-    -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
     
-    -  use Params as key : courseId and value : {id of course}
-    -  use Params as key : lessonId and value : {id of lesson}
+  -  use Params as key : courseId and value : {id of course}
+  -  use Params as key : lessonId and value : {id of lesson}
 
-    - **Response Example**
-      ```json
+  - **Response Example**
 
-      ```
+- **Get last lesson of user**
+  - `GET` [http://localhost:8080/api/v1/user-lesson/latest](http://localhost:8080/api/v1/user-lesson/latest)
+
+
+- **Headers**
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+
+  - **Response Example**
+    ```json
+          {
+            "lessonId": 1,
+            "lessonName": "Grammar Basics",
+            "content": "Introduction to English Grammar",
+            "attachments": "",
+            "level": 1,
+            "courseId": 1,
+            "progress": 25.0
+          }
+    ```
 
 
 ### Vocabulary APIs
@@ -591,47 +610,47 @@ This is a server-side API for an English learning application, built using Java 
 
 
     - **Headers**
-    -  | Key            | Value             | Description                       |
-    -  |----------------|-------------------|-----------------------------------|
-    -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
 
-    - **Response Example**
-      ```json
-        [
-        {
-        "id": 1,
-        "userId": 1,
-        "vocabId": 1,
-        "progress": "ok",
-        "word": "strawbery",
-        "meaning": "A fruit that is typically white, and red."
-        },
-        {
-        "id": 2,
-        "userId": 1,
-        "vocabId": 1,
-        "progress": "ok",
-        "word": "strawbery",
-        "meaning": "A fruit that is typically white, and red."
-        },
-        {
-        "id": 4,
-        "userId": 1,
-        "vocabId": 1,
-        "progress": "ok",
-        "word": "strawbery",
-        "meaning": "A fruit that is typically white, and red."
-        },
-        {
-        "id": 5,
-        "userId": 1,
-        "vocabId": 1,
-        "progress": "learning",
-        "word": "strawbery",
-        "meaning": "A fruit that is typically white, and red."
-        }
-        ]
-        ```
+  - **Response Example**
+    ```json
+      [
+      {
+      "id": 1,
+      "userId": 1,
+      "vocabId": 1,
+      "progress": "ok",
+      "word": "strawbery",
+      "meaning": "A fruit that is typically white, and red."
+      },
+      {
+      "id": 2,
+      "userId": 1,
+      "vocabId": 1,
+      "progress": "ok",
+      "word": "strawbery",
+      "meaning": "A fruit that is typically white, and red."
+      },
+      {
+      "id": 4,
+      "userId": 1,
+      "vocabId": 1,
+      "progress": "ok",
+      "word": "strawbery",
+      "meaning": "A fruit that is typically white, and red."
+      },
+      {
+      "id": 5,
+      "userId": 1,
+      "vocabId": 1,
+      "progress": "learning",
+      "word": "strawbery",
+      "meaning": "A fruit that is typically white, and red."
+      }
+      ]
+      ```
 
 
 ### Test APIs
@@ -794,9 +813,9 @@ This is a server-side API for an English learning application, built using Java 
 
     ```
         - **Headers**
-        -  | Key            | Value             | Description                       |
-        -  |----------------|-------------------|-----------------------------------|
-        -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
 
 
 - **Get Test and user test by access-token**
@@ -804,103 +823,280 @@ This is a server-side API for an English learning application, built using Java 
 
 
     - **Headers**
-    -  | Key            | Value             | Description                       |
-    -  |----------------|-------------------|-----------------------------------|
-    -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
  
-    -  use Params as key : courseId and value : {id of course}
+  -  use Params as key : courseId and value : {id of course}
 
-    - **Response Example**
-      ```json
-      [
-      {
-        "testId": 1,
-        "testName": "Sample Test",
-        "description": "This is a sample test",
-        "examDate": "2024-12-01",
-        "examTime": 90,
-        "level": "Intermediate",
-        "maxNumberOfExams": "100",
-        "courseId": 1,
-        "type": "Quiz",
-        "score": "8.5",
-        "date": "2024-12-19",
-        "examTimes": "16:48:59.495000",
-        "status": 1
-      },
-      {
-        "testId": 2,
-        "testName": "Sample Test 2",
-        "description": "This is a sample test",
-        "examDate": "2024-12-01",
-        "examTime": 90,
-        "level": "Intermediate",
-        "maxNumberOfExams": "100",
-        "courseId": 1,
-        "type": "Quiz",
-        "score": "7.5",
-        "date": "2024-12-19",
-        "examTimes": "16:51:42.113000",
-        "status": 1
-      }
-      ]
-      ```
+  - **Response Example**
+    ```json
+    [
+    {
+      "testId": 1,
+      "testName": "Sample Test",
+      "description": "This is a sample test",
+      "examDate": "2024-12-01",
+      "examTime": 90,
+      "level": "Intermediate",
+      "maxNumberOfExams": "100",
+      "courseId": 1,
+      "type": "Quiz",
+      "score": "8.5",
+      "date": "2024-12-19",
+      "examTimes": "16:48:59.495000",
+      "status": 1
+    },
+    {
+      "testId": 2,
+      "testName": "Sample Test 2",
+      "description": "This is a sample test",
+      "examDate": "2024-12-01",
+      "examTime": 90,
+      "level": "Intermediate",
+      "maxNumberOfExams": "100",
+      "courseId": 1,
+      "type": "Quiz",
+      "score": "7.5",
+      "date": "2024-12-19",
+      "examTimes": "16:51:42.113000",
+      "status": 1
+    }
+    ]
+    ```
 
 - **Get All Test and user test by access-token**
   - `GET` [http://localhost:8080/api/v1/user-test/ranked-tests-example](http://localhost:8080/api/v1/user-test/ranked-tests-example)
 
 
     - **Headers**
-    -  | Key            | Value             | Description                       |
-    -  |----------------|-------------------|-----------------------------------|
-    -  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
  
-    -  use Params as key : courseId and value : {id of course}
+  -  use Params as key : courseId and value : {id of course}
 
     - **Response Example**
       ```json
+      [
+      {
+      "testId": 4,
+      "examTime": 90,
+      "level": "Intermediate",
+      "maxNumberOfExams": "100",
+      "userTestStatus": 1,
+      "testName": "Sample Test 2.2",
+      "type": "Quiz",
+      "courseId": 2,
+      "score": "5.5",
+      "date": "2024-12-19",
+      "examTimes": "16:33:17"
+      },
+      {
+      "testId": 3,
+      "examTime": 90,
+      "level": "Intermediate",
+      "maxNumberOfExams": "100",
+      "userTestStatus": 1,
+      "testName": "Sample Test 2.1",
+      "type": "Quiz",
+      "courseId": 2,
+      "score": "7",
+      "date": "2024-12-19",
+      "examTimes": "16:33:08"
+      },
+      {
+      "testId": 3,
+      "examTime": 90,
+      "level": "Intermediate",
+      "maxNumberOfExams": "100",
+      "userTestStatus": 1,
+      "testName": "Sample Test 2.1",
+      "type": "Quiz",
+      "courseId": 2,
+      "score": "5",
+      "date": "2024-12-19",
+      "examTimes": "16:32:48"
+      }
+      ]
+    ```
+
+### Steak APIs
+
+**Add Steak**
+- **Method**: `POST`
+- **Endpoint**: [http://localhost:8080/api/v1/attendance/mark?userId=1](http://localhost:8080/api/v1/attendance/mark?userId=1)
+
+- **get history steak**
+  - `GET` [http://localhost:8080/api/v1/attendance/history/1](http://localhost:8080/api/v1/attendance/history/1)
+
+- **get total steak**
+  - `GET` [http://localhost:8080/api/v1/attendance/streak/1](http://localhost:8080/api/v1/attendance/streak/1)
+
+### Speaking topic APIs
+
+**Add speaking topic**
+- **Method**: `POST`
+  - **Endpoint**: [http://localhost:8080/api/v1/topics](http://localhost:8080/api/v1/topics)
+
+    - **Request body Example**
+      ```json
+      {
+      "title": "Travel English",
+      "description": "Useful English sentences for traveling abroad."
+      }
+      ```
+
+- **get speaking topic**
+  - `GET` [http://localhost:8080/api/v1/attendance/history/1](http://localhost:8080/api/v1/attendance/history/1)
+
+    - **Response body Example**
+      ```json
+      [
+      {
+      "id": 1,
+      "title": "Daily Conversations",
+      "description": "Basic English speaking topics for daily life situations.",
+      "createdAt": "2025-11-22T17:50:53.710673"
+      },
+      {
+      "id": 2,
+      "title": "Job Interview",
+      "description": "Common speaking patterns used in English job interviews.",
+      "createdAt": "2025-11-22T17:51:40.5495"
+      },
+      {
+      "id": 3,
+      "title": "Travel English",
+      "description": "Useful English sentences for traveling abroad.",
+      "createdAt": "2025-11-22T17:51:47.771402"
+      }
+      ]
+      ```
+### Speaking lesson APIs
+
+**add speaking lesson**
+- **Method**: `POST`
+  - **Endpoint**: [http://localhost:8080/api/v1/SpeakingLessons](http://localhost:8080/api/v1/SpeakingLessons)
+
+    - **Request body Example**
+      ```json
+      {
+        "topicId": 3,
+        "title": "At the Airport",
+        "description": "Common sentences used at the airport check-in."
+      }
+      ```
+
+- **get speaking lesson**
+  - `GET` [http://localhost:8080/api/v1/SpeakingLessons](http://localhost:8080/api/v1/SpeakingLessons)
+
+    - **Response body Example**
+      ```json
+      [
+        {
+          "id": 1,
+          "topic": {
+            "id": 1,
+            "title": "Daily Conversations",
+            "description": "Basic English speaking topics for daily life situations.",
+            "createdAt": "2025-11-22T17:50:53.710673"
+          },
+          "title": "Greetings and Introductions",
+          "description": "Practice greeting others and introducing yourself.",
+          "createdAt": "2025-11-22T17:52:28.772772"
+        }
+      ]
+      ```
+- **get speaking lesson by access token**
+  - `GET` [http://localhost:8080/api/v1/SpeakingLessons/TopicId/1/me](http://localhost:8080/api/v1/SpeakingLessons/TopicId/1/me)
+    - **Headers**
+-  | Key            | Value             | Description                       |
+-  |----------------|-------------------|-----------------------------------|
+-  | Authorization  | Bearer {JWT}      | JWT access token from login       |
+
+    - **Response body Example**
+      ```json
+      [
+         {
+            "lessonId": 1,
+            "title": "Greetings and Introductions",
+            "description": "Practice greeting others and introducing yourself.",
+            "joined": false,
+            "totalCorrect": null,
+            "totalSentences": null,
+            "pass": null
+          }
+      ]
+      ```
+
+### speaking sentence APIs
+
+**add speaking sentence**
+- **Method**: `POST`
+  - **Endpoint**: [http://localhost:8080/api/v1/sentences](http://localhost:8080/api/v1/sentences)
+
+    - **Request body Example**
+      ```json
+          {
+            "lessonId": 3,
+            "sentenceEn": "What is the boarding gate number?",
+            "orderIndex": 3
+          }
+
+      ```
+
+- **get speaking sentence**
+  - `GET` [http://localhost:8080/api/v1/sentences](http://localhost:8080/api/v1/sentences)
+
+    - **Response body Example**
+      ```json
+      [
+        {
+          "id": 1,
+          "lesson": {
+            "id": 1,
+            "topic": {
+              "id": 1,
+              "title": "Daily Conversations",
+              "description": "Basic English speaking topics for daily life situations.",
+              "createdAt": "2025-11-22T17:50:53.710673"
+          },
+          "title": "Greetings and Introductions",
+          "description": "Practice greeting others and introducing yourself.",
+          "createdAt": "2025-11-22T17:52:28.772772"
+        },
+        "sentenceEn": "Hello, how are you?",
+        "orderIndex": 1
+        }
+      ]
+      ```
+- **get speaking sentence by speaking lesson id**
+  - `GET` [http://localhost:8080/api/v1/sentences/by-lesson/1](http://localhost:8080/api/v1/sentences/by-lesson/1)
+
+
+  - **Response body Example**
+    ```json
     [
     {
-        "testId": 4,
-        "examTime": 90,
-        "level": "Intermediate",
-        "maxNumberOfExams": "100",
-        "userTestStatus": 1,
-        "testName": "Sample Test 2.2",
-        "type": "Quiz",
-        "courseId": 2,
-        "score": "5.5",
-        "date": "2024-12-19",
-        "examTimes": "16:33:17"
+        "id": 1,
+        "sentenceEn": "Hello, how are you?",
+        "orderIndex": 1
     },
     {
-        "testId": 3,
-        "examTime": 90,
-        "level": "Intermediate",
-        "maxNumberOfExams": "100",
-        "userTestStatus": 1,
-        "testName": "Sample Test 2.1",
-        "type": "Quiz",
-        "courseId": 2,
-        "score": "7",
-        "date": "2024-12-19",
-        "examTimes": "16:33:08"
+        "id": 2,
+        "sentenceEn": "My name is John.",
+        "orderIndex": 2
     },
     {
-        "testId": 3,
-        "examTime": 90,
-        "level": "Intermediate",
-        "maxNumberOfExams": "100",
-        "userTestStatus": 1,
-        "testName": "Sample Test 2.1",
-        "type": "Quiz",
-        "courseId": 2,
-        "score": "5",
-        "date": "2024-12-19",
-        "examTimes": "16:32:48"
+        "id": 3,
+        "sentenceEn": "Nice to meet you.",
+        "orderIndex": 3
     }
     ]
-      ```
+    ```
+
+
 ---
 
 ## Installation and Setup
@@ -910,6 +1106,9 @@ This is a server-side API for an English learning application, built using Java 
 4. Run the application using your preferred IDE or via command line:
    ```bash
    ./mvnw spring-boot:run
+
+5. Install Whisper AI and python to perform voice analysis function, download link at: https://www.youtube.com/watch?v=ABFqbY_rmEk&list=LL&index=1
+6. Follow the Flutter app at the link: https://github.com/haisehi/english-app-datn
 
 ![Alt text](b.png)
 

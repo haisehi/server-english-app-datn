@@ -74,6 +74,10 @@ public class User implements UserDetails {
     @JsonManagedReference
     private List<Token> tokens;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<SpeakingUserScore> speakingScores;
+
+
 
 
     // Thêm quan hệ với bảng UserCourse
