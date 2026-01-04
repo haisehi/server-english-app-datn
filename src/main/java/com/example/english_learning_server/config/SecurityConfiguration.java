@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -11,6 +12,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -24,30 +30,67 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                // ===== FIX CORS (BẮT BUỘC) =====
+                .cors(Customizer.withDefaults())
+
                 .csrf()
                 .disable()
+
                 .authorizeHttpRequests()
-//                .requestMatchers("/api/v1/**")
-//                .permitAll()
-                .requestMatchers("/api/v1/userCourses/me","/api/v1/userLesson/me").authenticated()
+                // ===== GIỮ NGUYÊN LOGIC CŨ =====
+                // .requestMatchers("/api/v1/**").permitAll()
+                .requestMatchers(
+                        "/api/v1/userCourses/me",
+                        "/api/v1/userLesson/me"
+                ).authenticated()
                 .anyRequest()
                 .permitAll()
+
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+
                 .and()
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+
                 .logout()
                 .logoutUrl("/api/v1/auth/logout")
                 .addLogoutHandler(logoutHandler)
                 .logoutSuccessHandler(
                         (request, response, authentication) ->
                                 SecurityContextHolder.clearContext()
-                )
-        ;
-
+                );
 
         return http.build();
+    }
+
+    // ===== CORS CONFIGURATION =====
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+
+        // Frontend origin
+        config.setAllowedOrigins(List.of("http://localhost:5173"));
+
+        // Methods cho phép (PHẢI có OPTIONS)
+        config.setAllowedMethods(List.of(
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "OPTIONS"
+        ));
+
+        // Headers
+        config.setAllowedHeaders(List.of("*"));
+
+        // Cho phép gửi Authorization header
+        config.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+
+        return source;
     }
 }

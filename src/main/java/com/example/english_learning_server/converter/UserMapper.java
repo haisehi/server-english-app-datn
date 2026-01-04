@@ -24,6 +24,7 @@ public class UserMapper {
                 user.getPhone(),
                 user.getAvatar(),
                 user.getStatus(),
+                user.getCreateDate(),
                 user.getTokens() != null ? toTokenDTOList(user.getTokens()) : null // Chuyển danh sách Token
         );
     }
@@ -58,6 +59,7 @@ public class UserMapper {
         user.setPhone(userDTO.getPhone());
         user.setAvatar(userDTO.getAvatar());
         user.setStatus(userDTO.getStatus());
+        user.setCreateDate(userDTO.getCreateDate());
         return user;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.english_learning_server.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -16,5 +17,6 @@ public class TestDTO {
     private String level;
     private String passingScore;
     private Integer status;
+    @JsonProperty("courseId")
     private Integer courseId;
 }

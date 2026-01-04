@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -16,5 +17,6 @@ public class UserDTO {
     private String phone;
     private String avatar;
     private int status;
+    private LocalDateTime createDate;
     private List<TokenDTO> tokens; // Danh sách token
 }
