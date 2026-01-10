@@ -30,21 +30,17 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // ===== FIX CORS (BẮT BUỘC) =====
+                // ===== ENABLE CORS =====
                 .cors(Customizer.withDefaults())
 
-                .csrf()
-                .disable()
+                .csrf().disable()
 
                 .authorizeHttpRequests()
-                // ===== GIỮ NGUYÊN LOGIC CŨ =====
-                // .requestMatchers("/api/v1/**").permitAll()
                 .requestMatchers(
                         "/api/v1/userCourses/me",
                         "/api/v1/userLesson/me"
                 ).authenticated()
-                .anyRequest()
-                .permitAll()
+                .anyRequest().permitAll()
 
                 .and()
                 .sessionManagement()
@@ -65,15 +61,18 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-    // ===== CORS CONFIGURATION =====
+    // ===== GLOBAL CORS CONFIG =====
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // Frontend origin
-        config.setAllowedOrigins(List.of("http://localhost:5173"));
+        //  ALLOW MULTIPLE REACT PROJECTS
+        config.setAllowedOrigins(List.of(
+                "http://localhost:5173",
+                "http://localhost:5174"
+        ));
 
-        // Methods cho phép (PHẢI có OPTIONS)
+        //  MUST HAVE OPTIONS
         config.setAllowedMethods(List.of(
                 "GET",
                 "POST",
@@ -82,10 +81,9 @@ public class SecurityConfiguration {
                 "OPTIONS"
         ));
 
-        // Headers
         config.setAllowedHeaders(List.of("*"));
 
-        // Cho phép gửi Authorization header
+        // ⚠️ BẮT BUỘC nếu dùng Authorization / JWT
         config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

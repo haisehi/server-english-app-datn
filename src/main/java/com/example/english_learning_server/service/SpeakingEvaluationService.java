@@ -156,14 +156,15 @@ public class SpeakingEvaluationService {
         return 1.0 - ((double) dist / maxLen);
     }
 
+//    đo lường mức độ sai khác
     private int levenshteinDistance(String s, String t) {
         int n = s.length();
         int m = t.length();
         if (n == 0) return m;
         if (m == 0) return n;
 
-        int[] prev = new int[m + 1];
-        int[] curr = new int[m + 1];
+        int[] prev = new int[m + 1]; //kết quả tính toán của hàng trước
+        int[] curr = new int[m + 1]; //kết quả tính toán của hàng hiện tại
 
         for (int j = 0; j <= m; j++) prev[j] = j;
 

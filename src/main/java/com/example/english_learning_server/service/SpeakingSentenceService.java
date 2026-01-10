@@ -31,7 +31,7 @@ public class SpeakingSentenceService {
         return sentenceRepository.save(sentence);
     }
 
-    // ⭐ NEW — Lấy danh sách câu theo bài
+    //  NEW — Lấy danh sách câu theo bài
     public List<SpeakingSentenceResponseDTO> getSentencesByLesson(Long lessonId) {
         List<SpeakingSentence> sentences =
                 sentenceRepository.findByLessonIdOrderByOrderIndexAsc(lessonId);
